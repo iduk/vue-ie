@@ -3,8 +3,9 @@
 
     <TheHeader />
 
-    <main class="main">
-      <div class="container flex flex-1">
+    <main class="main container">
+      <BreadCrumbs />
+      <div class="flex flex-1">
         <router-view name="sidebar" />
         <router-view class="w-100" />
       </div>
@@ -16,15 +17,17 @@
 </template>
 
 <script>
-import TheFooter from "@/components/TheFooter.vue";
+import BreadCrumbs from "@/components/BreadCrumbs.vue";
 import TheHeader from "@/components/Header/TheHeader.vue";
+import TheFooter from "@/components/TheFooter.vue";
 
 export default {
   name: 'BaseLayout',
   components: {
     TheHeader,
-    TheFooter
-  },
+    TheFooter,
+    BreadCrumbs
+},
   computed: {
     pageName() {
       return this.$route.name;
