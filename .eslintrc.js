@@ -9,7 +9,7 @@ module.exports = {
 		"plugin:vue/essential",
 		"plugin:vue/recommended",
 		"eslint:recommended",
-		"plugin:prettier/recommended",
+		// "plugin:prettier/recommended",
 		"plugin:import/errors",
 		"plugin:import/warnings",
 	],
