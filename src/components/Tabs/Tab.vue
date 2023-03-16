@@ -1,28 +1,22 @@
 <template>
-	<li class="tab-btn">
-		<router-link
-			:class="[active, 'tab']"
-			:to="path"
-			@click="$emit('input', id)"
-		>
-			{{ label }}
-		</router-link>
-	</li>
+	<div v-if="activeTab" role="tabpanel">
+		<slot></slot>
+	</div>
 </template>
 
 <script>
 export default {
 	props: {
-		id: Number,
 		label: String,
-		value: Number,
-		path: String,
+		title: String,
 	},
-
-	computed: {
-		active() {
-			return this.value === this.id ? "active" : false;
-		},
+	data() {
+		return {
+			activeTab: false,
+		};
+	},
+	mounted() {
+		this.activeTab = this.selectedTab;
 	},
 };
 </script>
