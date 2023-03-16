@@ -1,6 +1,9 @@
 <template>
 	<div>
-		<section v-for="(item, index) in toggleboxs" :key="index">
+		<section
+			v-for="(item, index) in toggleboxs"
+			:key="index"
+		>
 			<button @click="onToggle(index)">
 				{{ item.name }}
 			</button>

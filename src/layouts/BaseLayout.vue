@@ -3,12 +3,22 @@
 		<!-- appbar -->
 		<appbar @toggle="handleMenu" />
 
-		<transition name="menu" appear>
-			<Sidebar v-show="showMenu" class="menu" @close="showMenu = false" />
+		<transition
+			name="menu"
+			appear
+		>
+			<Sidebar
+				v-show="showMenu"
+				class="menu"
+				@close="showMenu = false"
+			/>
 		</transition>
 
 		<main class="main">
-			<Transition :name="transitionName" mode="out-in">
+			<Transition
+				:name="transitionName"
+				mode="out-in"
+			>
 				<router-view />
 			</Transition>
 		</main>
@@ -23,7 +33,7 @@ import Appbar from "@/components/Appbar/Appbar.vue";
 import Sidebar from "@/components/Sidebar/Sidebar.vue";
 import TabNav from "@/components/TabNav/TabNav.vue";
 
-const DEFAULT_TRANSITION = '';
+const DEFAULT_TRANSITION = "";
 
 export default {
 	name: "BaseLayout",
@@ -36,24 +46,24 @@ export default {
 		return {
 			showMenu: false,
 			prevHeight: 0,
-      transitionName: DEFAULT_TRANSITION,
+			transitionName: DEFAULT_TRANSITION,
 		};
 	},
 	created() {
 		this.$router.beforeEach((to, from, next) => {
-		let transitionName = to.meta.transitionName || from.meta.transitionName;
+			let transitionName = to.meta.transitionName || from.meta.transitionName;
 
-		if (transitionName === 'slide') {
-			const toDepth = to.path.split('/').length;
-			const fromDepth = from.path.split('/').length;
-			transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left';
-		} else if (transitionName === 'fade') {
-			this.transitionName = transitionName;
-		}
+			if (transitionName === "slide") {
+				const toDepth = to.path.split("/").length;
+				const fromDepth = from.path.split("/").length;
+				transitionName = toDepth < fromDepth ? "slide-right" : "slide-left";
+			} else if (transitionName === "fade") {
+				this.transitionName = transitionName;
+			}
 
-		this.transitionName = transitionName || DEFAULT_TRANSITION;
+			this.transitionName = transitionName || DEFAULT_TRANSITION;
 
-		next();
+			next();
 		});
 	},
 	methods: {
@@ -101,21 +111,21 @@ export default {
 .slide-left-leave-active,
 .slide-right-enter-active,
 .slide-right-leave-active {
-  transition-duration: 0.5s;
-  transition-property: height, opacity, transform;
-  transition-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
-  overflow: hidden;
+	transition-duration: 0.5s;
+	transition-property: height, opacity, transform;
+	transition-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
+	overflow: hidden;
 }
 
 .slide-left-enter,
 .slide-right-leave-active {
-  opacity: 0;
-  transform: translate(2em, 0);
+	opacity: 0;
+	transform: translate(2em, 0);
 }
 
 .slide-left-leave-active,
 .slide-right-enter {
-  opacity: 0;
-  transform: translate(-2em, 0);
+	opacity: 0;
+	transform: translate(-2em, 0);
 }
 </style>

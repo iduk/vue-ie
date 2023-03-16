@@ -23,6 +23,7 @@ export default {
 				id: this.toastId++,
 				open: true,
 			};
+			// eslint-disable-next-line no-undef
 			toasts.push(newToast);
 			setTimeout(() => {
 				newToast.open = false;

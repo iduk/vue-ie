@@ -4,12 +4,12 @@
 			<!-- input focus시, label: true >> Only 회원가입 화면 -->
 			<!-- 
 				<transition name="focus" appear>
-				<label v-if="focusOn && label" :for="id">
-					{{ label }}
-					<strong v-if="required" class="text-red">*</strong>
-				</label>
-			</transition>
-		-->
+					<label v-if="focusOn && label" :for="id">
+						{{ label }}
+						<strong v-if="required" class="text-red">*</strong>
+					</label>
+				</transition>
+			-->
 			<label v-if="label" :for="id">
 				{{ label }}
 				<strong v-if="required" class="text-red">*</strong>
@@ -29,10 +29,9 @@
 				</span>
 
 				<input
-					:value="value"
-					v-on:input="updateInput"
 					v-bind="{ ...$attrs }"
 					:id="id"
+					:value="value"
 					:placeholder="placeholder"
 					:aria-placeholder="placeholder"
 					:invalid="invalid"
@@ -41,9 +40,10 @@
 					:required="required"
 					:aria-required="required"
 					style="text-align: inherit"
+					ref="inputRef"
+					@input="updateInput"
 					@focus="focusOn = true"
 					@blur="focusOn = false"
-					ref="inputRef"
 				/>
 				<button class="btn-clear" @click="resetInput">
 					<img
@@ -126,7 +126,7 @@ export default {
 
 	methods: {
 		updateInput: function (event) {
-			this.$emit('input', event.target.value);
+			this.$emit("input", event.target.value);
 		},
 
 		// reset

@@ -15,9 +15,15 @@
 					class="content"
 					:class="[{ close: close == true }, { error: error == true }]"
 				>
-					<div class="arrow" aria-hidden="true" />
+					<div
+						class="arrow"
+						aria-hidden="true"
+					/>
 					<slot name="popover" />
-					<button v-close-popover class="btn-close">
+					<button
+						v-close-popover
+						class="btn-close"
+					>
 						<span class="sr-only">닫기</span>
 					</button>
 				</div>

@@ -1,8 +1,22 @@
 <template>
 	<div class="slider-wrapper">
-		<input type="range" class="styled-slider slider-progress" id="baseSlider" v-bind="{...$attrs}" @input="updateInput" list="values" style="" />
+		<input
+			id="baseSlider"
+			type="range"
+			class="styled-slider slider-progress"
+			v-bind="{ ...$attrs }"
+			list="values"
+			style=""
+			@input="updateInput"
+		>
 		<datalist id="values">
-			<option v-for="(option, index) in options" :key="index" :value="option.value" :label="option.label" v-bind="{...$attrs}"></option>
+			<option
+				v-for="(option, index) in options"
+				:key="index"
+				:value="option.value"
+				:label="option.label"
+				v-bind="{ ...$attrs }"
+			/>
 		</datalist>
 	</div>
 </template>
@@ -13,25 +27,27 @@ export default {
 		options: [],
 	},
 	data() {
-		return {
-			
-		};
+		return {};
 	},
 	mounted() {
-		for (let e of document.querySelectorAll('input[type="range"].slider-progress')) {
-			e.style.setProperty('--value', e.value);
-			e.style.setProperty('--min', e.min == '' ? '0' : e.min);
-			e.style.setProperty('--max', e.max == '' ? '100' : e.max);
-			e.addEventListener('input', () => e.style.setProperty('--value', e.value));
+		for (let e of document.querySelectorAll(
+			'input[type="range"].slider-progress'
+		)) {
+			e.style.setProperty("--value", e.value);
+			e.style.setProperty("--min", e.min == "" ? "0" : e.min);
+			e.style.setProperty("--max", e.max == "" ? "100" : e.max);
+			e.addEventListener("input", () =>
+				e.style.setProperty("--value", e.value)
+			);
 		}
 	},
 	methods: {
 		updateInput($event) {
-			this.$emit('input', $event.target.value, $event);
+			this.$emit("input", $event.target.value, $event);
 			if ($event.target.value < 1) {
-				this.$emit('input', $event.target.value = 1);
+				this.$emit("input", ($event.target.value = 1));
 			}
-		}
+		},
 	},
 };
 </script>
@@ -40,7 +56,7 @@ export default {
 div.slider-wrapper {
 	width: 100%;
 }
-input[type=range].styled-slider {
+input[type="range"].styled-slider {
 	width: 100%;
 	appearance: none;
 	margin: 0;
@@ -99,12 +115,14 @@ input[type=range].styled-slider {
 		--ratio: calc((var(--value) - var(--min)) / var(--range));
 		--sx: calc(0.5 * 20px + var(--ratio) * (100% - 20px));
 		&::-webkit-slider-runnable-track {
-			background: linear-gradient($blue-1, $blue-1) 0/var(--sx) 100% no-repeat, $blue-7;
+			background: linear-gradient($blue-1, $blue-1) 0 / var(--sx) 100% no-repeat,
+				$blue-7;
 			height: 8px;
 			border-radius: 100px;
 		}
 		&::-moz-range-track {
-			background: linear-gradient($blue-1, $blue-1) 0/var(--sx) 100% no-repeat, $blue-7;
+			background: linear-gradient($blue-1, $blue-1) 0 / var(--sx) 100% no-repeat,
+				$blue-7;
 			height: 8px;
 			border-radius: 100px;
 		}
