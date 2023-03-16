@@ -30,12 +30,13 @@ module.exports = {
 		"vue/require-default-prop": 0,
 
 		// Disable template errors regarding invalid end tags
-		"vue/no-parsing-error": [
-			"error",
-			{
-				"x-invalid-end-tag": false,
-			},
-		],
+		// "vue/component-definition-name-casing": ["warning", "kebab-case"],
+		// "vue/no-parsing-error": [
+		// 	"error",
+		// 	{
+		// 		"x-invalid-end-tag": false,
+		// 	},
+		// ],
 
 		/***************************/
 		/* ESLint Vue Plugin Rules */

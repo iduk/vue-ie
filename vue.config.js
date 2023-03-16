@@ -55,10 +55,6 @@ module.exports = defineConfig({
 
 		// svg loader => svg component
 		config.module.rules.delete("svg");
-		config.externals({
-			IMP: "IMP",
-			"vue-lottie": "lottie",
-		});
 
 		// svg inline => assets/img
 		config.module
