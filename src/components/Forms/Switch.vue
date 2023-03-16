@@ -1,11 +1,7 @@
 <template>
 	<div class="toggle-control">
 		<label>
-			<input
-				type="checkbox"
-				:disabled="disabled"
-				@click="toggle"
-			>
+			<input type="checkbox" :disabled="disabled" @click="toggle" />
 			<span class="control" />
 		</label>
 		<p>

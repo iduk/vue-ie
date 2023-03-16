@@ -50,44 +50,44 @@
 			color: inherit;
 			font-size: inherit;
 			font-weight: inherit;
-      padding: 0;
+			padding: 0;
 		}
 	}
 }
 
 // tab-style: base
 .tabs-base {
-  @include tabs;
+	@include tabs;
 	gap: 1.6rem;
 	height: 5.2rem;
 
-  .tab-item {
-    border-bottom: 0.3rem solid transparent;
-    color: var(--gray-3);
-  
-    &.active {
-      color: var(--black);
-      border-color: var(--black);
-      font-weight: 700;
-    }
-  }
+	.tab-item {
+		border-bottom: 0.3rem solid transparent;
+		color: var(--gray-3);
+
+		&.active {
+			color: var(--black);
+			border-color: var(--black);
+			font-weight: 700;
+		}
+	}
 }
 // tab-style: rounded
 .tabs-rounded {
-  @include tabs;
+	@include tabs;
 	gap: 0.8rem;
 	height: 3.2rem;
 
-  .tab-item {
-    background-color: var(--gray-6);
-    color: var(--gray-3);
-    font-size: 1.3rem;
-    border-radius: 1.6rem;
-    padding: 0.7rem 1.4rem;
-    
-    &.active {
-      color: var(--white);
-      background-color: var(--black);
-    }
-  }
+	.tab-item {
+		background-color: var(--gray-6);
+		color: var(--gray-3);
+		font-size: 1.3rem;
+		border-radius: 1.6rem;
+		padding: 0.7rem 1.4rem;
+
+		&.active {
+			color: var(--white);
+			background-color: var(--black);
+		}
+	}
 }

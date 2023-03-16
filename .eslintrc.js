@@ -9,7 +9,8 @@ module.exports = {
 		"plugin:vue/essential",
 		"plugin:vue/recommended",
 		"eslint:recommended",
-		// "plugin:prettier/recommended",
+		"plugin:prettier/recommended",
+		"@vue/eslint-config-prettier",
 		"plugin:import/errors",
 		"plugin:import/warnings",
 	],
@@ -28,15 +29,15 @@ module.exports = {
 		"vue/no-unused-components": 1,
 		"vue/multi-word-component-names": 0,
 		"vue/require-default-prop": 0,
+		"vue/require-prop-types": 0,
 
 		// Disable template errors regarding invalid end tags
-		// "vue/component-definition-name-casing": ["warning", "kebab-case"],
-		// "vue/no-parsing-error": [
-		// 	"error",
-		// 	{
-		// 		"x-invalid-end-tag": false,
-		// 	},
-		// ],
+		"vue/no-parsing-error": [
+			"error",
+			{
+				"x-invalid-end-tag": false,
+			},
+		],
 
 		/***************************/
 		/* ESLint Vue Plugin Rules */

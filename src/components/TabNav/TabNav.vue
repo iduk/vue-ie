@@ -1,10 +1,10 @@
 <template>
 	<ul role="tablist" class="tab-nav">
 		<li
-			role="tab"
-			:aria-controls="tab.name"
 			v-for="(tab, index) in tabNavList"
 			:key="index"
+			role="tab"
+			:aria-controls="tab.name"
 			class="tab-nav--item"
 		>
 			<router-link

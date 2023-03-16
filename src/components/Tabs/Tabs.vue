@@ -1,9 +1,6 @@
 <template>
 	<div class="tabs-wrapper">
-		<ul
-			class="tabs"
-			:class="`tabs-${tabStyle}`"
-		>
+		<ul class="tabs" :class="`tabs-${tabStyle}`">
 			<li
 				v-for="tab in tablist"
 				:key="tab.id"
@@ -34,8 +31,8 @@ export default {
 	props: {
 		tabStyle: {
 			type: String,
-			default: 'base',
-		}
+			default: "base",
+		},
 	},
 	data() {
 		return {
@@ -54,7 +51,6 @@ export default {
 
 	methods: {
 		// 스크롤 감지 추가해야댐
-		
 	},
 };
 </script>

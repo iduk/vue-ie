@@ -31,6 +31,7 @@
 				<input
 					v-bind="{ ...$attrs }"
 					:id="id"
+					ref="inputRef"
 					:value="value"
 					:placeholder="placeholder"
 					:aria-placeholder="placeholder"
@@ -40,7 +41,6 @@
 					:required="required"
 					:aria-required="required"
 					style="text-align: inherit"
-					ref="inputRef"
 					@input="updateInput"
 					@focus="focusOn = true"
 					@blur="focusOn = false"
@@ -131,7 +131,7 @@ export default {
 
 		// reset
 		resetInput() {
-			this.value = "";
+			this.$emit("input", "");
 			return this.value.focus();
 		},
 	},

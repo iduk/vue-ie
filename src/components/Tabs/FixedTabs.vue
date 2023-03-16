@@ -18,10 +18,7 @@
 				>
 					<span class="focus">{{ tab.title }}</span>
 					<!-- 갯수 2개일때만 badge -->
-					<span
-						v-if="tab.badge && tablist.length <= 2"
-						class="badge"
-					>
+					<span v-if="tab.badge && tablist.length <= 2" class="badge">
 						{{ tab.badge }}
 					</span>
 				</button>

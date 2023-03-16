@@ -83,7 +83,6 @@ $flex-gap: (
 
 // flex properties + gap spacing
 @mixin flex-spacing($name, $prop, $arr) {
-	
 	@each $mod, $dir in $arr {
 		// .gap-col-*
 		@if $mod == "col" or "row" and "" {
@@ -98,7 +97,7 @@ $flex-gap: (
 			.#{$name}-#{$i} {
 				#{$prop}: $spacing * $i !important;
 			}
-		} 
+		}
 	}
 }
 
@@ -110,4 +109,4 @@ $flex-gap: (
 @include flex-properties("shrink", "flex-shrink", $flex-shrink);
 @include flex-properties("justify", "justify-content", $justify-content);
 @include flex-properties("align", "align-items", $align-items);
-@include flex-spacing('gap', 'gap', $flex-gap);
+@include flex-spacing("gap", "gap", $flex-gap);

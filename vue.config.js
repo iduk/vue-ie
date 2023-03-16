@@ -1,12 +1,11 @@
 const { defineConfig } = require("@vue/cli-service");
-const { join } = require("path");
 const path = require("path");
 const isDev = process.env.NODE_ENV === "development";
 
 module.exports = defineConfig({
 	transpileDependencies: true,
 	runtimeCompiler: true,
-	
+
 	publicPath: process.env.BASE_URL,
 	assetsDir: process.env.BASE_URL,
 
@@ -19,7 +18,7 @@ module.exports = defineConfig({
 	},
 
 	productionSourceMap: false,
-	lintOnSave: process.env.NODE_ENV !== 'production',
+	lintOnSave: process.env.NODE_ENV !== "production",
 
 	// publ setup
 	css: {
@@ -55,6 +54,8 @@ module.exports = defineConfig({
 
 		// svg loader => svg component
 		config.module.rules.delete("svg");
+		// eslint
+		// config.module.rules.delete("eslint");
 
 		// svg inline => assets/img
 		config.module

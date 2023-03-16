@@ -39,10 +39,12 @@
 		"@babel/eslint-parser": "^7.12.16",
 		"@babel/polyfill": "^7.12.1",
 		"@babel/preset-env": "^7.20.2",
+		"@rushstack/eslint-patch": "^1.2.0",
 		"@vue/cli-plugin-babel": "~5.0.0",
 		"@vue/cli-plugin-eslint": "~5.0.0",
 		"@vue/cli-service": "~5.0.0",
 		"@vue/composition-api": "^1.7.1",
+		"@vue/eslint-config-prettier": "^7.1.0",
 		"@vue/runtime-dom": "^3.2.47",
 		"babel-loader": "^9.1.2",
 		"babel-polyfill": "^6.26.0",
@@ -65,7 +67,6 @@
 		"postcss-import": "^15.0.1",
 		"postcss-nested": "^6.0.0",
 		"postcss-preset-env": "^7.8.3",
-		"prettier": "^2.8.4",
 		"sass": "^1.56.1",
 		"sass-loader": "^13.2.0",
 		"url-loader": "^4.1.1",
@@ -85,8 +86,7 @@
 	},
 	"lint-staged": {
 		"src/*.{vue,js,jsx}": [
-			"eslint --fix",
-			"prettier --write"
+			"eslint --fix"
 		]
 	}
 }

@@ -1,20 +1,12 @@
 <template>
 	<ol class="breadcrumb">
 		<li>
-			<router-link :to="{ path: '/' }">
-				메인
-			</router-link>
+			<router-link :to="{ path: '/' }"> 메인 </router-link>
 		</li>
 		<!-- items -->
-		<li
-			v-for="(crumb, index) in breadcrumbItems"
-			:key="index"
-		>
+		<li v-for="(crumb, index) in breadcrumbItems" :key="index">
 			<span v-if="crumb.isActive">{{ crumb.text }}</span>
-			<router-link
-				v-else
-				:to="crumb.link"
-			>
+			<router-link v-else :to="crumb.link">
 				{{ crumb.text }}
 			</router-link>
 		</li>

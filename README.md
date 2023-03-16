@@ -40,24 +40,24 @@ root/
     │       │   ├── _sizes.scss
     │       │   ├── _spacing.scss
     │       │   └── _typography.scss
-    │       ├── pages
+    │       ├── pages // 메뉴 단위별 화면 스타일
     │       │   ├── Gro.scss
     │       │   ├── Apv.scss
     │       │   ├── Qm.scss
     │       │   ├── Tr.scss
     │       │   ├── Myp.scss
     │       │   └── ...
-            ├── global.scss
+    │       ├── global.scss
     │       └── main.scss
     │     
     ├── components
     │   ├── LoadingSpinner.vue
-    │   ├── BaseButton.vue
+    │   ├── Btn.vue
     │   ├── Appbar
     │   │   ├── Appbar.scss
     │   │   └── Appbar.vue
-    │   ├── Dialogs
-    │   │   ├── BottomSheet.vue
+    │   ├── Dialogs 
+    │   │   │── BottomSheet.vue
     │   │   ├── Dialog.vue
     │   │   ├── FullDialog.vue
     │   │   ├── ConfirmDialog.vue
@@ -75,12 +75,14 @@ root/
     │   │   ├── TabNav.vue
     │   │   └── TabNav.scss
     │   ├── Tabs
-    │   │   ├── Tabs.vue
     │   │   ├── Tab.vue
-    │   │   └── Tabs.scss
+    │   │   ├── Tabs.scss
+    │   │   ├── Tabs.vue
+    │   │   ├── FixedTabs.scss
+    │   │   └── FixedTabs.scss
     │   └── Toast
-    │       ├── Toast.vue
     │       ├── Toast.scss
+    │       ├── Toast.vue
     │       └── ToastContainer.vue
     ├── layouts
     │   ├── AppLayout.vue

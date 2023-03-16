@@ -19,7 +19,6 @@
 	}
 }
 
-
 // headings
 @each $key, $value in $headings {
 	h#{$key},

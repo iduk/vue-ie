@@ -1,0 +1,112 @@
+// inputRange (Slider Component)
+div.slider-wrapper {
+	width: 100%;
+
+	datalist {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		width: 100%;
+		margin-top: 6px;
+		color: $gray-300;
+
+		option {
+			width: 20px;
+			font-size: $text-sm;
+			text-align: center;
+			padding: 0;
+		}
+	}
+}
+
+input[type="range"].styled-slider {
+	width: 100%;
+	appearance: none;
+	margin: 0;
+
+	&::-webkit-slider-thumb {
+		width: 20px;
+		height: 20px;
+		border-radius: 100%;
+		background: $white;
+		border: 1px solid $gray-600;
+		box-shadow: 0 2px 8px rgba(174, 190, 228, 0.3);
+		margin-top: calc(8px * 0.5 - 20px * 0.5);
+		cursor: pointer;
+		appearance: none;
+	}
+
+	&::-webkit-runnable-track {
+		height: 8px;
+		border: none;
+		border-radius: 100px;
+		background: $blue-7;
+		box-shadow: none;
+	}
+
+	&::-moz-range-track {
+		height: 8px;
+		border: none;
+		border-radius: 100px;
+		background: $blue-7;
+		box-shadow: none;
+	}
+
+	&::-ms-fill-upper {
+		background: transparent;
+		border-color: transparent;
+	}
+
+	&::-ms-fill-lower {
+		background: transparent;
+		border-color: transparent;
+	}
+
+	&::-ms-thumb {
+		width: 20px;
+		height: 20px;
+		border-radius: 100%;
+		background: $white;
+		border: 1px solid $gray-600;
+		margin-top: 0;
+		box-sizing: border-box;
+	}
+
+	&::-ms-track {
+		height: 8px;
+		border-radius: 100px;
+		background: $blue-7;
+		border: none;
+		box-shadow: none;
+		box-sizing: border-box;
+	}
+
+	&.slider-progress {
+		--range: calc(var(--max) - var(--min));
+		--ratio: calc((var(--value) - var(--min)) / var(--range));
+		--sx: calc(0.5 * 20px + var(--ratio) * (100% - 20px));
+
+		&::-webkit-slider-runnable-track {
+			background: linear-gradient($blue-1, $blue-1) 0 / var(--sx) 100% no-repeat,
+				$blue-7;
+			height: 8px;
+			border-radius: 100px;
+		}
+
+		&::-moz-range-track {
+			background: linear-gradient($blue-1, $blue-1) 0 / var(--sx) 100% no-repeat,
+				$blue-7;
+			height: 8px;
+			border-radius: 100px;
+		}
+
+		&::-ms-fill-lower {
+			height: 8px;
+			border-radius: 100px 0 0 100px;
+			margin: -undefined 0 -undefined -undefined;
+			background: $blue-1;
+			border: none;
+			border-right-width: 0;
+		}
+	}
+}

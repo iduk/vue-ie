@@ -1,5 +1,5 @@
 <template>
-	<div class="layout">
+	<div class="empty-layout">
 		<router-view />
 	</div>
 </template>
@@ -9,10 +9,3 @@ export default {
 	name: "EmptyLayout",
 };
 </script>
-
-<style lang="scss" scoped>
-.layout {
-	width: 100%;
-	height: 100vh;
-}
-</style>

@@ -1,7 +1,7 @@
 <template>
 	<div class="fieldset">
 		<div class="form-check">
-			<input type="checkbox" :value="value" @click="toggleChecked"/>
+			<input type="checkbox" :value="value" @click="toggleChecked" />
 			<label :for="id">{{ label }}</label>
 		</div>
 	</div>
@@ -19,8 +19,8 @@ export default {
 
 	methods: {
 		toggleChecked() {
-			this.$emit('input', !this.value)
-		}
+			this.$emit("input", !this.value);
+		},
 	},
 };
 </script>

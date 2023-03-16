@@ -120,10 +120,12 @@
 			animation: focusLine 0.2s alternate;
 		}
 	}
+
 	@keyframes focusLine {
 		from {
 			width: 0;
 		}
+
 		to {
 			width: 100%;
 		}
@@ -135,6 +137,7 @@
 		&:is(:focus, :focus-within, :active) {
 			outline: none;
 		}
+
 		&::placeholder {
 			color: var(--gray-5);
 		}
@@ -191,6 +194,7 @@
 	&.unit {
 		font-size: $text-xl;
 		text-align: right;
+
 		input {
 			font-weight: 700;
 		}
@@ -205,6 +209,7 @@
 	// 추가
 	&.invalid {
 		color: var(--red) !important;
+
 		&::after {
 			content: "";
 			position: absolute;
@@ -220,6 +225,7 @@
 // field container
 .fieldset {
 	width: 100%;
+
 	&:has(.invalid) {
 		color: var(--red);
 
@@ -227,6 +233,7 @@
 			background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTYgOUwxMiAxNUwxOCA5IiBzdHJva2U9IiNFNzFGMkEiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg==) !important;
 		}
 	}
+
 	& + .fieldset {
 		margin-top: 30px;
 	}
@@ -259,9 +266,11 @@
 		flex-shrink: 0;
 	}
 }
+
 .invalid-feedback {
 	@include help-text;
 }
+
 .help-text {
 	@include help-text;
 	color: var(--gray-3);
@@ -410,7 +419,8 @@
 		cursor: pointer;
 
 		&::after {
-			left: $switch-width - ($switch-height - ($switch-gutter * 2)) - $switch-gutter;
+			left: $switch-width - ($switch-height - ($switch-gutter * 2)) -
+				$switch-gutter;
 			// $switch-width - $switch-control-size - $switch-gutter;
 			box-shadow: $switch-shadow-on;
 		}
@@ -432,9 +442,9 @@
 			position: absolute;
 			left: $switch-gutter;
 			top: $switch-gutter;
-			width:  $switch-height - ($switch-gutter * 2); // $switch-control-size;
+			width: $switch-height - ($switch-gutter * 2); // $switch-control-size;
 			height: $switch-height - ($switch-gutter * 2); // $switch-control-size;
-			border-radius: calc($switch-height / 2);// $switch-radius;
+			border-radius: calc($switch-height / 2); // $switch-radius;
 			background: $switch-control-color;
 			box-shadow: $switch-shadow-off;
 			transition: left $switch-control-speed $switch-control-ease;
@@ -445,6 +455,7 @@
 .toggle-control {
 	@include toggle-control(42px, 24px, 4px);
 }
+
 .toggle-control.small {
 	@include toggle-control(32px, 18px, 3px);
 }

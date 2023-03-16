@@ -11,70 +11,38 @@
 					<h5>H5: 어부어부어부바 신협</h5>
 				</Column>
 				<Column :xs="12">
-					<p class="body-1">
-						body-1: 어부어부어부바 신협
-					</p>
-					<p class="body-2">
-						body-2: 어부어부어부바 신협
-					</p>
-					<p class="body-3">
-						body-3: 어부어부어부바 신협
-					</p>
-					<p class="body-4">
-						body-4: 어부어부어부바 신협
-					</p>
-					<p class="body-5">
-						body-5: 어부어부어부바 신협
-					</p>
+					<p class="body-1">body-1: 어부어부어부바 신협</p>
+					<p class="body-2">body-2: 어부어부어부바 신협</p>
+					<p class="body-3">body-3: 어부어부어부바 신협</p>
+					<p class="body-4">body-4: 어부어부어부바 신협</p>
+					<p class="body-5">body-5: 어부어부어부바 신협</p>
 				</Column>
 			</Row>
 		</article>
 
 		<article class="document">
-			<h5>Base Button</h5>
+			<h5>Buttons</h5>
 			<Row :gutter="8">
 				<Column>
 					<div class="flex gap-1">
-						<base-button size="xs">
-							xs
-						</base-button>
-						<base-button size="sm">
-							sm
-						</base-button>
-						<base-button size="md">
-							md
-						</base-button>
+						<base-button size="xs"> xs </base-button>
+						<base-button size="sm"> sm </base-button>
+						<base-button size="md"> md </base-button>
 						<base-button>Default</base-button>
-						<base-button size="lg">
-							lg
-						</base-button>
+						<base-button size="lg"> lg </base-button>
 					</div>
 				</Column>
 				<Column>
-					<div class="btn-sticky">
-						<button class="btn btn-lg btn-outline-light">
-							동의안함
-						</button>
-						<button class="btn btn-lg btn-primary-1">
-							동의함
-						</button>
+					<h6>ButtonGroup - Sticky</h6>
+					<div class="btn-group sticky">
+						<base-button size="lg">동의안함</base-button>
+						<base-button size="lg" color="primary-1">동의</base-button>
 					</div>
 					<div class="btn-group mt-4">
-						<button class="btn btn-lg btn-outline-light">
-							동의안함
-						</button>
-						<button class="btn btn-lg btn-primary-1">
-							동의함
-						</button>
+						<base-button size="lg">동의안함</base-button>
+						<base-button size="lg" color="primary-1">동의</base-button>
 					</div>
-					<div class="btn-toggle mt-4">
-						<button class="btn btn-lg btn-outline-light">
-							예
-						</button>
-						<button class="btn btn-lg btn-outline-light">
-							아니오
-						</button>
-					</div>
+					<confirm-button />
 				</Column>
 			</Row>
 		</article>
@@ -100,12 +68,9 @@
 					<span class="block bg-gray-4">Column :xs='4'</span>
 				</Column>
 			</Row>
-			<hr>
+			<hr />
 			<Row :gutter="8">
-				<Column
-					:xs="6"
-					:xs-offset="6"
-				>
+				<Column :xs="6" :xs-offset="6">
 					<span class="block bg-gray-4">xs-offset='6'</span>
 				</Column>
 			</Row>
@@ -139,32 +104,20 @@
 				<h6>Checkbox & RadioButton</h6>
 				<Row :gutter="8">
 					<Column>
-						<p class="mb-3">
-							Checkbox Type
-						</p>
+						<p class="mb-3">Checkbox Type</p>
 						<div class="flex align-center gap-2">
 							<div class="form-check">
-								<input
-									id="defaultCheck"
-									type="checkbox"
-									value="defaultCheck"
-								>
+								<input id="defaultCheck" type="checkbox" value="defaultCheck" />
 								<label for="defaultCheck">Default</label>
 							</div>
 							<div class="form-check small">
-								<input
-									id="smallCheck"
-									type="checkbox"
-									value="smallCheck"
-								>
+								<input id="smallCheck" type="checkbox" value="smallCheck" />
 								<label for="smallCheck">Small</label>
 							</div>
 						</div>
 					</Column>
 					<Column>
-						<p class="mb-3">
-							RadioButton Type
-						</p>
+						<p class="mb-3">RadioButton Type</p>
 						<div class="flex align-center gap-2">
 							<div class="form-check">
 								<input
@@ -172,7 +125,7 @@
 									type="radio"
 									name="a"
 									value="defaultRadio"
-								>
+								/>
 								<label for="defaultRadio">Default</label>
 							</div>
 							<div class="form-check small">
@@ -181,15 +134,13 @@
 									type="radio"
 									name="a"
 									value="smallRadio"
-								>
+								/>
 								<label for="smallRadio">Small</label>
 							</div>
 						</div>
 					</Column>
 					<Column>
-						<p class="mb-3">
-							ToggleSwitch Type
-						</p>
+						<p class="mb-3">ToggleSwitch Type</p>
 						<div class="flex align-center gap-2">
 							<div class="toggle-control">
 								<label>
@@ -197,7 +148,7 @@
 										type="checkbox"
 										:value="onSwitch"
 										@change="switchToggle"
-									>
+									/>
 									<span class="control" />
 								</label>
 								<p>{{ onSwitch }}</p>
@@ -208,7 +159,7 @@
 										type="checkbox"
 										:value="onSwitch"
 										@change="switchToggle"
-									>
+									/>
 									<span class="control" />
 								</label>
 								<p>{{ onSwitch }}</p>
@@ -216,9 +167,7 @@
 						</div>
 					</Column>
 				</Row>
-				<h6 class="my-5">
-					Checkbox List
-				</h6>
+				<h6 class="my-5">Checkbox List</h6>
 				<Row :gutter="8">
 					<Column>
 						<div class="form-check">
@@ -228,7 +177,7 @@
 								type="checkbox"
 								value="product-manager"
 								disabled
-							>
+							/>
 							<label for="product-manager">기획</label>
 						</div>
 					</Column>
@@ -239,7 +188,7 @@
 								v-model="checkedList"
 								type="checkbox"
 								value="design"
-							>
+							/>
 							<label for="design">디자인</label>
 						</div>
 					</Column>
@@ -250,7 +199,7 @@
 								v-model="checkedList"
 								type="checkbox"
 								value="publ"
-							>
+							/>
 							<label for="publ">퍼블</label>
 						</div>
 					</Column>
@@ -261,7 +210,7 @@
 								v-model="checkedList"
 								type="checkbox"
 								value="dev"
-							>
+							/>
 							<label for="dev">개발</label>
 						</div>
 					</Column>
@@ -272,7 +221,7 @@
 								v-model="checkedList"
 								type="checkbox"
 								value="mother"
-							>
+							/>
 							<label for="mother">수행사</label>
 						</div>
 					</Column>
@@ -283,15 +232,13 @@
 								v-model="checkedList"
 								type="checkbox"
 								value="agency"
-							>
+							/>
 							<label for="agency">대행사</label>
 						</div>
 					</Column>
 				</Row>
 
-				<p class="py-3">
-					checked: {{ checkedList }}
-				</p>
+				<p class="py-3">checked: {{ checkedList }}</p>
 			</section>
 			<section class="my-4">
 				<h6>text-field</h6>
@@ -338,22 +285,14 @@
 								on-invalid="true"
 								aria-invalid="..."
 								required="true"
-							>
-							<button
-								class="btn-clear"
-								title="재입력"
-							>
-								<img
-									inline
-									src="@/assets/images/icon_24/close-circle.svg"
-								>
+							/>
+							<button class="btn-clear" title="재입력">
+								<img inline src="@/assets/images/icon_24/close-circle.svg" />
 							</button>
 						</div>
 					</div>
 					<div class="flex justify-between">
-						<p class="invalid-feedback shrink-0">
-							invalid message...
-						</p>
+						<p class="invalid-feedback shrink-0">invalid message...</p>
 					</div>
 				</div>
 				<!-- // -->
@@ -363,10 +302,7 @@
 		<article class="document">
 			<h5>Toast</h5>
 			<div>
-				<base-button
-					label="토스트 클릭!"
-					@click="showToast"
-				/>
+				<base-button label="토스트 클릭!" @click="showToast" />
 
 				<toast-container>
 					<toast
@@ -384,10 +320,7 @@
 		<!-- bottom sheet -->
 		<article class="document">
 			<h5>Bottom Sheet</h5>
-			<div
-				class="flex align-center"
-				style="gap: 1rem"
-			>
+			<div class="flex align-center" style="gap: 1rem">
 				<base-button
 					label="default"
 					@click="showBottomSheet01 = !showBottomSheet01"
@@ -402,13 +335,8 @@
 				/>
 			</div>
 
-			<bottom-sheet
-				v-if="showBottomSheet01"
-				@close="showBottomSheet01 = false"
-			>
-				<template #body>
-					body
-				</template>
+			<bottom-sheet v-if="showBottomSheet01" @close="showBottomSheet01 = false">
+				<template #body> body </template>
 				<template #footer>
 					<base-button label="확인" />
 				</template>
@@ -423,38 +351,14 @@
 					<div class="input-money">
 						<!-- 금액입력시 active 클래스 추가, 에러시 error 클래스 추가 -->
 						<div class="top active">
-							<p class="unit">
-								<span>일만</span>원
-							</p>
-							<p class="number active">
-								<span>10000</span>원
-							</p>
+							<p class="unit"><span>일만</span>원</p>
+							<p class="number active"><span>10000</span>원</p>
 							<div class="btns-number">
-								<base-button
-									label="100만"
-									size="sm"
-									color="outline-light"
-								/>
-								<base-button
-									label="10만"
-									size="sm"
-									color="outline-light"
-								/>
-								<base-button
-									label="5만"
-									size="sm"
-									color="outline-light"
-								/>
-								<base-button
-									label="1만"
-									size="sm"
-									color="outline-light"
-								/>
-								<base-button
-									label="전액"
-									size="sm"
-									color="outline-light"
-								/>
+								<base-button label="100만" size="sm" color="outline-light" />
+								<base-button label="10만" size="sm" color="outline-light" />
+								<base-button label="5만" size="sm" color="outline-light" />
+								<base-button label="1만" size="sm" color="outline-light" />
+								<base-button label="전액" size="sm" color="outline-light" />
 							</div>
 						</div>
 						<div class="keypad">
@@ -474,7 +378,7 @@
 									inline
 									src="@/assets/images/icon_24/Frame_gray.svg"
 									aria-hidden="true"
-								>
+								/>
 								<span class="sr-only">지우기</span>
 							</button>
 						</div>
@@ -482,12 +386,7 @@
 				</template>
 				<template #footer>
 					<!-- 금액미입력 or 에러 시 비활성화 -->
-					<base-button
-						label="확인"
-						size="lg"
-						color="primary-1"
-						block
-					/>
+					<base-button label="확인" size="lg" color="primary-1" block />
 				</template>
 			</bottom-sheet>
 
@@ -525,7 +424,7 @@
 									inline
 									src="@/assets/images/icon_24/Frame.svg"
 									aria-hidden="true"
-								>
+								/>
 								<span class="sr-only">지우기</span>
 							</button>
 						</div>
@@ -537,10 +436,7 @@
 		<!-- tooltip -->
 		<article class="document">
 			<h5>Tooltip</h5>
-			<div
-				class="flex align-center"
-				style="gap: 1rem"
-			>
+			<div class="flex align-center" style="gap: 1rem">
 				<Tooltip>
 					<template #label>
 						<button class="btn-tooltip">
@@ -599,11 +495,7 @@
 				<Column>
 					<figure>
 						<figcaption>png, 이미지 사용</figcaption>
-						<img
-							alt="Vue logo"
-							src="@/assets/images/pig7.png"
-							width="100px"
-						>
+						<img alt="Vue logo" src="@/assets/images/pig7.png" width="100px" />
 						<pre>@/assets/images/logo.png</pre>
 					</figure>
 				</Column>
@@ -611,10 +503,7 @@
 				<Column>
 					<figure>
 						<figcaption>SVG inline, sprite</figcaption>
-						<img
-							inline
-							src="@/assets/images/pig7.svg"
-						>
+						<img inline src="@/assets/images/pig7.svg" />
 						<pre>@/assets/images/pig7.svg inline</pre>
 					</figure>
 				</Column>
@@ -631,12 +520,9 @@
 
 		<!-- base slider -->
 		<article class="document">
-			<h5>Base Slider</h5>
-			<div
-				class="flex align-center"
-				style="gap: 1rem"
-			>
-				<BaseSlider
+			<h5>Slider</h5>
+			<div class="flex align-center" style="gap: 1rem">
+				<Slider
 					v-model="value"
 					:min="min"
 					:max="max"
@@ -653,11 +539,8 @@
 </template>
 
 <script>
-import BaseSlider from "@/components/BaseSlider.vue";
-import BottomSheet from "@/components/BottomSheet";
 import Toast from "@/components/Toast/Toast";
 import ToastContainer from "@/components/Toast/ToastContainer";
-import Tooltip from "@/components/Tooltip";
 
 export default {
 	name: "Example",
@@ -665,9 +548,6 @@ export default {
 		Toast,
 		ToastContainer,
 		// LoadingSpinner,
-		BottomSheet,
-		Tooltip,
-		BaseSlider,
 	},
 	data() {
 		return {
@@ -747,7 +627,8 @@ export default {
 	> h5 {
 		text-transform: uppercase;
 		background-color: #00000010;
-		font-size: 2rem;
+		font-size: 3rem;
+		padding: 1rem;
 	}
 }
 
