@@ -38,8 +38,16 @@ import IconWindowOn from "@/assets/images/menu-window-on.svg";
 
 export default {
 	components: {
+		IconApvOff,
+		IconApvOn,
 		IconHomeOff,
 		IconHomeOn,
+		IconQmOff,
+		IconQmOn,
+		IconTrOff,
+		IconTrOn,
+		IconWindowOff,
+		IconWindowOn,
 	},
 	data() {
 		return {
