@@ -42,7 +42,6 @@
 						<base-button size="lg">동의안함</base-button>
 						<base-button size="lg" color="primary-1">동의</base-button>
 					</div>
-					<confirm-button />
 				</Column>
 			</Row>
 		</article>
@@ -84,6 +83,10 @@
 
 		<article class="document">
 			<h5>Tabs</h5>
+			<div class="mb-8">
+				<h6>Lee Tabs</h6>
+				<TabGroup />
+			</div>
 			<div class="mb-8">
 				<h6>Default Tabs</h6>
 				<tabs />
@@ -245,15 +248,21 @@
 
 				<!-- text input -->
 				<text-field
+					v-model="text01"
+					label="아이디 입력"
+					placeholder="아이디를 입력해 주세요"
+					message="메세지를 입력해주세요"
+				/>
+				<text-field
 					v-model="userId"
-					label="입금할 금액"
+					label="금액 입력시"
 					placeholder="입금할 금액을 입력"
 					message="일십백천만"
 					unit="원"
 				/>
 				<text-field
 					v-model="userId"
-					label="입금할 금액"
+					label="금액 입력시 validation"
 					placeholder="입금할 금액 입력"
 					invalid="잔액이 부족합니다."
 					message="일십백천만"
@@ -539,6 +548,7 @@
 </template>
 
 <script>
+import TabGroup from "@/components/Tabs/TabGroup";
 import Toast from "@/components/Toast/Toast";
 import ToastContainer from "@/components/Toast/ToastContainer";
 
@@ -548,6 +558,7 @@ export default {
 		Toast,
 		ToastContainer,
 		// LoadingSpinner,
+		TabGroup,
 	},
 	data() {
 		return {
@@ -556,6 +567,8 @@ export default {
 			showBottomSheet01: false,
 			showBottomSheet02: false,
 			showBottomSheet03: false,
+			text01: "",
+			text02: "",
 			userId: "",
 			userPw: "",
 			checkedList: [],

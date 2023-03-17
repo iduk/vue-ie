@@ -9,7 +9,7 @@
 
 <script>
 export default {
-	name: "Home",
+	name: "Man",
 
 	data() {
 		return {

@@ -10,9 +10,9 @@ import TrRoutes from "./TrRoutes";
 
 const routes = [
 	{
-		path: "/home",
+		path: "/man",
 		name: "메인",
-		component: () => import("@/views/Home/Home"),
+		component: () => import("@/views/Man/Man"),
 		alias: "/",
 		meta: {
 			transitionName: "fade",
