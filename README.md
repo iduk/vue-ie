@@ -52,7 +52,8 @@ root/
     │     
     ├── components
     │   ├── LoadingSpinner.vue
-    │   ├── Btn.vue
+    │   ├── BaseButton.vue
+    │   ├── ButtonToggle.vue    
     │   ├── Appbar
     │   │   ├── Appbar.scss
     │   │   └── Appbar.vue
