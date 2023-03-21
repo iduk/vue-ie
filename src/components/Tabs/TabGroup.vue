@@ -1,116 +1,112 @@
 <template>
-	<div class="tabGroupRoot">
-		<div class="tabs">
-			<TabItem
-				v-for="aTabData in tabData"
-				v-bind="aTabData"
-				:key="aTabData.keyValue"
-				v-model="selectedTabID"
-				@click.native="onItemClick"
-			/>
-		</div>
-		<div class="contents">
-			<transition>
-				<section :key="selectedTabID" class="item">
-					<!-- Dynamic Loader -->
-					<!-- <component :is="componentLoader" /> -->
-				</section>
-			</transition>
-		</div>
-	</div>
+    <div class="tabGroupRoot">
+        <div class="tabs">
+            <TabItem 
+                v-for="aTabData in tabData" 
+                v-bind:key="aTabData.keyValue" 
+                v-bind="aTabData"
+                v-model="selectedTabID"
+                v-on:click.native="onItemClick"/>
+        </div>
+        
+        <div class="contents">
+            <transition>
+                <section class="item" :key="selectedTabID">
+                    <!-- Dynamic Component Loader -->
+                    <component v-if="selectedTabID !== -1" :is="componentLoader" />
+                </section>
+            </transition>
+        </div>
+    </div>
 </template>
 
 <script>
-import TabItem from "./TabItem.vue";
+import TabItem from './TabItem.vue'
 export default {
-	name: "TabGroup",
-	components: { TabItem },
-	data() {
-		return {
-			selectedTabID: 1,
-			tabData: [
-				{ keyValue: 1, textLabel: "Tab1" },
-				{ keyValue: 2, textLabel: "Tab2" },
-				{ keyValue: 3, textLabel: "Tab3" },
-				{
-					keyValue: 4,
-					textLabel: "Tab4",
-				},
-				{ keyValue: 5, textLabel: "Tab5" },
-				{
-					keyValue: 6,
-					textLabel: "Tab6",
-				},
-				{ keyValue: 7, textLabel: "Tab7" },
-				{
-					keyValue: 8,
-					textLabel: "Tab8",
-				},
-				{ keyValue: 9, textLabel: "Tab9" },
-			],
-		};
-	},
-	computed: {
-		current() {
-			return (
-				this.tabData.find((el) => el.keyValue === this.selectedTabID) || {}
-			);
-		},
-		// componentLoader() {
-		// 	// Do Not Remove Below Assignment - for Ignoring Computed Cache Problem
-		// 	const tab = this.tabData.find((el) => el.keyValue === this.selectedTabID);
-		// 	return tab
-		// 		? () => import(`./${tab.componentName}.vue`)
-		// 		: alert(`No Component Found ${this.selectedTabID} \\ ${tab}`);
-		// },
-	},
-	methods: {
-		onItemClick() {
-			const tabIndex = this.tabData.findIndex(
-				(el) => el.keyValue == this.selectedTabID
-			);
-			return tabIndex === -1
-				? null
-				: this.$children[tabIndex].$el.scrollIntoView({
-						behavior: "smooth",
-						block: "neareast",
-						inline: "center",
-				  });
-		},
-	},
-};
+    components: { TabItem },
+    props : {
+        requestTabID : Number,
+        tabData : Array
+    },
+    computed: {
+        currentTab() {
+            return this.tabData.find(el => el.keyValue === this.selectedTabID) || {}
+        },
+        currentIndex() {
+            return this.tabData.findIndex(el => el.keyValue == this.selectedTabID)
+        },
+        componentLoader() {
+            const tab = this.currentTab
+
+            /// If SelectedTabID is not in tabData
+            return Object.keys(tab).length != 0 ? (
+                () => import(`./${tab.componentName}.vue`)
+             ) : (
+                alert(`No Component Found ${this.selectedTabID} \\ ${tab}`)
+             )
+        }
+    },
+    watch: {
+        /// Handle Change Tab Request from Parent Component
+        'requestTabID' : {
+            handler(newValue) {
+                this.selectedTabID = newValue
+            },
+            immediate: false
+        },
+        /// Send Event to Parent Component
+        'selectedTabID' : {
+            handler(newValue, oldValue) {
+                this.$emit("on-tab-changed", newValue, oldValue)
+            },
+            immediate: false
+        }
+    },
+    methods: {
+        /// Move TabItem to Center of Parent
+        onItemClick() {
+            const tabIndex = this.currentIndex
+            return tabIndex === -1 ? null : this.$children[tabIndex].$el.scrollIntoView({ behavior: "smooth", inline: "center" });
+        }
+    },
+    data: function() {
+        return {
+            selectedTabID : this.requestTabID
+        }
+    }
+}
 </script>
 
 <style scoped>
 .tabs {
-	width: 100%;
-	display: flex;
+    width: 100%;
+    display: flex;
 
-	/* Overflow Handling */
-	overflow-x: scroll;
+    /* Overflow Handling */
+    overflow-x: scroll;
 }
 
 .contents {
-	width: 100%;
-	position: relative;
-	overflow: hidden;
-	border: 2px solid #000;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #000;
 }
 
 .item {
-	box-sizing: border-box;
-	padding: 10px;
-	transition: all 0.8s ease;
+    box-sizing: border-box;
+    padding: 10px;
+    transition: all 0.8s ease;
 }
 
 /* Transitions */
 .v-leave-active {
-	position: absolute;
+    position: absolute;
 }
 .v-enter {
-	transform: translateX(-100%);
+    transform: translateX(-100%);
 }
 .v-leave-to {
-	transform: translateX(100%);
+    transform: translateX(100%);
 }
 </style>
