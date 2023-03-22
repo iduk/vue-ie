@@ -1,8 +1,17 @@
 <template>
 	<div class="bottom-sheet">
-		<div class="dimm" aria-hidden="true" />
-		<transition name="slide-up" appear>
+		<transition name="fade" appear>
 			<div
+				v-if="open"
+				class="dimm"
+				aria-hidden="true"
+				@click="$emit('close')"
+			/>
+		</transition>
+
+		<transition name="slide">
+			<div
+				v-if="open"
 				class="pop"
 				:password="password"
 				:class="{ password: password == true }"
@@ -18,7 +27,7 @@
 				<div v-if="!password" class="footer">
 					<slot name="footer" />
 				</div>
-				<button v-if="!password" class="btn-close" @click="closePop()">
+				<button v-if="!password" class="btn-close" @click="$emit('close')">
 					<img
 						inline
 						src="@/assets/images/icon_20/close.svg"
@@ -26,7 +35,7 @@
 					/>
 					<span class="sr-only">닫기</span>
 				</button>
-				<button v-if="password" class="btn-close" @click="closePop()">
+				<button v-if="password" class="btn-close" @click="$emit('close')">
 					<img
 						inline
 						src="@/assets/images/icon_20/close_white2.svg"
@@ -50,19 +59,19 @@ export default {
 			type: Boolean,
 			default: false,
 		},
-		close: {
+		open: {
 			type: Boolean,
-			default: true,
+			default: false,
 		},
 	},
 	methods: {
-		closePop() {
-			const popup = document.querySelector(".pop");
-			popup.classList.add("slide-down");
-			setTimeout(() => {
-				this.$emit("close");
-			}, 300);
-		},
+		// closePop() {
+		// 	const popup = document.querySelector(".pop");
+		// 	popup.classList.add("slide-down");
+		// 	setTimeout(() => {
+		// 		this.$emit("close");
+		// 	}, 300);
+		// },
 	},
 };
 </script>

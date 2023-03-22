@@ -85,11 +85,20 @@
 			<h5>Tabs</h5>
 			<div class="mb-8">
 				<h6>Lee Tabs</h6>
-				<TabGroup />
+				<!-- <TabGroup
+					:tab-data="[
+						{ keyValue: 1, textLabel: 'tabItem 1', componentName: 'Test' },
+						{ keyValue: 2, textLabel: 'tabItem 2', componentName: 'Test' },
+						{ keyValue: 3, textLabel: 'tabItem 3', componentName: 'Test' },
+						{ keyValue: 4, textLabel: 'tabItem 4', componentName: 'Test' },
+					]"
+				/> -->
 			</div>
 			<div class="mb-8">
-				<h6>Default Tabs</h6>
-				<tabs />
+				<div>
+					<h6>Default Tabs</h6>
+					<tabs />
+				</div>
 			</div>
 			<div class="mb-8">
 				<h6>Default Tabs - Rounded</h6>
@@ -344,7 +353,10 @@
 				/>
 			</div>
 
-			<bottom-sheet v-if="showBottomSheet01" @close="showBottomSheet01 = false">
+			<bottom-sheet
+				:open="showBottomSheet01"
+				@close="showBottomSheet01 = false"
+			>
 				<template #body> body </template>
 				<template #footer>
 					<base-button label="확인" />
@@ -352,7 +364,7 @@
 			</bottom-sheet>
 
 			<bottom-sheet
-				v-if="showBottomSheet02"
+				:open="showBottomSheet02"
 				label=""
 				@close="showBottomSheet02 = false"
 			>
@@ -400,7 +412,7 @@
 			</bottom-sheet>
 
 			<bottom-sheet
-				v-if="showBottomSheet03"
+				:open="showBottomSheet03"
 				password
 				label=""
 				@close="showBottomSheet03 = false"
@@ -548,7 +560,7 @@
 </template>
 
 <script>
-import TabGroup from "@/components/Tabs/TabGroup";
+// import TabGroup from "@/components/Tabs/TabGroup";
 import Toast from "@/components/Toast/Toast";
 import ToastContainer from "@/components/Toast/ToastContainer";
 
@@ -558,7 +570,7 @@ export default {
 		Toast,
 		ToastContainer,
 		// LoadingSpinner,
-		TabGroup,
+		// TabGroup,
 	},
 	data() {
 		return {
