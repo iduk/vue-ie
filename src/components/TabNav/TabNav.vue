@@ -55,7 +55,7 @@ export default {
 
 			tabNavList: [
 				{
-					path: "/home",
+					path: "/man",
 					name: "홈",
 					icon1: IconHomeOn,
 					icon2: IconHomeOff,
