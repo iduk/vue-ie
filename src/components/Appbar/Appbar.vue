@@ -74,7 +74,7 @@ export default {
 	},
 	data() {
 		return {
-			setScroll: false,
+			setScroll: true,
 			setFlag: true,
 		};
 	},
