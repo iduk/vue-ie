@@ -3,6 +3,7 @@
 		class="app-bar"
 		:class="setScroll ? 'active' : ''"
 		@scroll="handleScroll"
+		@touchmove="touchMoveEvent"
 	>
 		<!-- Home Appbar -->
 		<nav v-if="$route.path === '/man'">
@@ -76,6 +77,7 @@ export default {
 		return {
 			setScroll: true,
 			setFlag: true,
+			mobile: "",
 		};
 	},
 
@@ -85,8 +87,32 @@ export default {
 	beforeDestroy() {
 		window.removeEventListener("scroll", this.handleScroll);
 	},
+	mounted() {
+		this.checkMobile();
+	},
 
 	methods: {
+		checkMobile() {
+			//userAgent 값 얻기
+			let myDevice = navigator.userAgent.toLowerCase();
+			this.mobile = myDevice;
+
+			if (myDevice.indexOf("android") > -1) {
+				console.log("나는 AOS");
+				return "android";
+			} else if (
+				myDevice.indexOf("iphone") > -1 ||
+				myDevice.indexOf("ipad") > -1
+			) {
+				//IOS
+				console.log("나는 IOS");
+				return "ios";
+			} else {
+				console.log("나는 그냥 Web");
+				return "other";
+			}
+		},
+
 		handleScroll() {
 			// const header = document.querySelector('.app-header');
 			const headerScroll = window.scrollY;
@@ -99,6 +125,9 @@ export default {
 				this.setScroll = false;
 			}
 			return (winScroll = headerScroll);
+		},
+		touchMoveEvent() {
+			console.log("무브무브");
 		},
 	},
 };
